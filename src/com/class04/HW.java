@@ -1,14 +1,16 @@
 package com.class04;
 
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 
 import com.utils.CommonMethods;
 import com.utils.ConfigsReader;
+import com.utils.ExcelUtility;
 
 public class HW extends CommonMethods {
 
-	@Test(dataProvider = "userData")
+	@Test(dataProvider = "userDataFromExcel")
 	public void test(String firstName, String lastName, String username, String password) {
 		// System.out.println(firstName + " " + lastName + " " + username + " " +
 		// password);
@@ -47,14 +49,15 @@ public class HW extends CommonMethods {
 
 	@DataProvider(name = "userData")
 	public Object[][] getData() {
-		Object[][] data = {
-				{ "Raj", "Capoor", "raj123", "AmirKhan_@123" }, 
-				{ "John", "Smith", "john123", "AmirKhan_@123" }, 
-				{ "Mary", "Ann", "mary123", "AmirKhan_@123" }, 
-				{ "Rohani", "Sakhi", "rohani123", "AmirKhan_@123" },
-				{ "Ali", "Tarlaci", "ali123", "AmirKhan_@123" },
-		};
+		Object[][] data = { { "Raj", "Capoor", "raj123", "AmirKhan_@123" },
+				{ "John", "Smith", "john123", "AmirKhan_@123" }, { "Mary", "Ann", "mary123", "AmirKhan_@123" },
+				{ "Rohani", "Sakhi", "rohani123", "AmirKhan_@123" }, { "Ali", "Tarlaci", "ali123", "AmirKhan_@123" }, };
 		return data;
+	}
+
+	@DataProvider(name = "userDataFromExcel")
+	public Object[][] getData2() {
+		return ExcelUtility.excelIntoArray(System.getProperty("user.dir") + "/testdata/Excel.xlsx", "Employee");
 	}
 
 }
