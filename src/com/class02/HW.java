@@ -1,32 +1,15 @@
 package com.class02;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.pages.DashBoardPageElements;
+import com.pages.DashboardPageElements;
 import com.pages.LoginPageElements;
 import com.utils.CommonMethods;
 import com.utils.ConfigsReader;
-import com.utils.Constants;
-
-import org.testng.annotations.BeforeMethod;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterMethod;
 
 public class HW extends CommonMethods {
-
-	@BeforeMethod
-	public void openBrowserAndNavigate() {
-		setUp();
-	}
-
-	@AfterMethod
-	public void quitBrowser() {
-		tearDown();
-	}
-
 	// 1st way
 	// @Test(dependsOnMethods = "invalidLogin" )
 	// 2nd way
@@ -62,7 +45,7 @@ public class HW extends CommonMethods {
 		// 3rd way
 		click(login.loginBtn);
 
-		DashBoardPageElements dashboard = new DashBoardPageElements();
+		DashboardPageElements dashboard = new DashboardPageElements();
 
 		boolean displayed = dashboard.logo.isDisplayed();
 		if (displayed) {
@@ -126,5 +109,3 @@ public class HW extends CommonMethods {
 	}
 
 }
-
-

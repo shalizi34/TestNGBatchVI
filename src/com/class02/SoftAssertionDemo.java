@@ -1,10 +1,11 @@
 package com.class02;
 
-import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import com.pages.DashBoardPageElements;
+import com.pages.DashboardPageElements;
 import com.pages.LoginPageElements;
 import com.utils.CommonMethods;
 import com.utils.ConfigsReader;
@@ -16,20 +17,10 @@ public class SoftAssertionDemo extends CommonMethods {
 //	Verify user successfully logged in
 //	by verifying welcome message
 
-	@BeforeMethod
-	public void openBrowserAndNavigate() {
-		setUp();
-	}
-
-	@AfterMethod
-	public void quitBrowser() {
-		tearDown();
-	}
-
 	@Test
 	public void logoAndWelcomeValidation() {
 		LoginPageElements login = new LoginPageElements();
-		DashBoardPageElements dashboard = new DashBoardPageElements();
+		DashboardPageElements dashboard = new DashboardPageElements();
 
 		// Logo assertion
 		boolean logoDisplayed = login.logo.isDisplayed();
