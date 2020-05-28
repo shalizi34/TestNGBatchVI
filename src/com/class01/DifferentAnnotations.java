@@ -14,7 +14,7 @@ public class DifferentAnnotations {
 		System.out.println("After Suite");
 	}
 	
-	@BeforeTest
+	@BeforeTest 
 	public void beforeTest() {
 		System.out.println("Before Test");
 	}

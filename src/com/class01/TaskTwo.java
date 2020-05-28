@@ -12,7 +12,7 @@ public class TaskTwo {
 	@AfterClass
 	public void afterClass() {
 		System.out.println("This is after Class");
-	}
+	} 
 
 	@BeforeMethod
 	public void beforeMethod() {
