@@ -33,11 +33,11 @@ public class LoginTest extends CommonMethods {
 		sendText(login.password, "uiuguig");
 		click(login.loginBtn);
 
-		String expected = "Invalid credentials";
+		String expected = "Invalid credential";
 		Assert.assertEquals(login.errorMsg.getText(), expected, "Error message text is not matched");
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void emptyUsernameLogin() {
 		// LoginPageElements login = new LoginPageElements();
 		sendText(login.password, ConfigsReader.getProperty("password"));

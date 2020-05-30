@@ -10,7 +10,7 @@ import com.utils.ExcelUtility;
 
 public class HW extends CommonMethods {
 
-	@Test(dataProvider = "userDataFromExcel")
+	@Test(dataProvider = "userDataFromExcel", groups = { "homework", "addEmp", "regression" })
 	public void test(String firstName, String lastName, String username, String password) {
 		// System.out.println(firstName + " " + lastName + " " + username + " " +
 		// password);
@@ -43,15 +43,19 @@ public class HW extends CommonMethods {
 		String actualEmpId = pdetails.employeeId.getAttribute("value");
 		Assert.assertEquals(actualEmpId, expectedEmpId, "Employee ID did not match!");
 
-		// take screeshot
+		// take screenshot
 		takeScreenshot(firstName + "_" + lastName);
 	}
 
 	@DataProvider(name = "userData")
 	public Object[][] getData() {
-		Object[][] data = { { "Raj", "Capoor", "raj123", "AmirKhan_@123" },
-				{ "John", "Smith", "john123", "AmirKhan_@123" }, { "Mary", "Ann", "mary123", "AmirKhan_@123" },
-				{ "Rohani", "Sakhi", "rohani123", "AmirKhan_@123" }, { "Ali", "Tarlaci", "ali123", "AmirKhan_@123" }, };
+		Object[][] data = { 
+				{ "Rajma", "Capoora", "raj123435345", "AmirKhan_@123" },
+				{ "John", "Smith", "john123", "AmirKhan_@123" }, 
+				{ "Mary", "Ann", "mary123", "AmirKhan_@123" },
+				{ "Rohani", "Sakhi", "rohani123", "AmirKhan_@123" }, 
+				{ "Ali", "Tarlaci", "ali123", "AmirKhan_@123" }, 
+				};
 		return data;
 	}
 

@@ -48,13 +48,16 @@ public class ExcelUtility {
 
 		// iterating rows
 		for (int i = 1; i < rows; i++) {
-
 			// iterating cols
 			for (int j = 0; j < cols; j++) {
+				//storing values into 2D array 
 				data[i - 1][j] = cellData(i, j);
 			}
 		}
 
 		return data;
 	}
+
+	//HW Create a method that will return a List of Maps
+	
 }
